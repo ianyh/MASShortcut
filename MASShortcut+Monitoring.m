@@ -146,7 +146,7 @@ static EventHandlerRef sEventHandler = NULL;
 BOOL InstallCommonEventHandler()
 {
     if (sEventHandler == NULL) {
-        EventTypeSpec hotKeyPressedSpec = { .eventClass = kEventClassKeyboard, .eventKind = kEventHotKeyPressed };
+        EventTypeSpec hotKeyPressedSpec = { .eventClass = kEventClassKeyboard, .eventKind = kEventHotKeyReleased };
         OSStatus status = InstallEventHandler(GetEventDispatcherTarget(), CarbonCallback, 1, &hotKeyPressedSpec, NULL, &sEventHandler);
         if (status != noErr) {
             sEventHandler = NULL;

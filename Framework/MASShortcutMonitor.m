@@ -16,7 +16,7 @@ static OSStatus MASCarbonEventCallback(EventHandlerCallRef, EventRef, void*);
 {
     self = [super init];
     [self setHotKeys:[NSMutableDictionary dictionary]];
-    EventTypeSpec hotKeyPressedSpec = { .eventClass = kEventClassKeyboard, .eventKind = kEventHotKeyPressed };
+    EventTypeSpec hotKeyPressedSpec = { .eventClass = kEventClassKeyboard, .eventKind = kEventHotKeyReleased };
     OSStatus status = InstallEventHandler(GetEventDispatcherTarget(), MASCarbonEventCallback,
         1, &hotKeyPressedSpec, (__bridge void*)self, &_eventHandlerRef);
     if (status != noErr) {
